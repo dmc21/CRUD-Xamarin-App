@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HelloWorld.View.PersonaPage">
+
+    <ScrollView>
+        <StackLayout>
+            <Label Text="{Binding Id}"></Label>
+            <Label Text="Nombre"></Label>
+            <Entry Text="{Binding Nombre}"></Entry>
+            <Label Text="Apellido"></Label>
+            <Entry Text="{Binding Apellido}"></Entry>
+            <Label Text="Edad"></Label>
+            <Entry Text="{Binding Edad}" Keyboard="Numeric"></Entry>
+            <Label Text="{Binding NombreCompleto}" TextColor="DarkBlue"></Label>
+            <Button Text="Save" Command="{Binding SaveCommand}"></Button>
+            <Button Text="Update" Command="{Binding UpdateCommand}"></Button>
+            <Button Text="Remove" Command="{Binding RemoveCommand}"></Button>
+            <Button Text="Clean Form" Command="{Binding CleanCommand}"></Button>
+            <ActivityIndicator IsRunning="{Binding isBusy}" IsVisible="{Binding isBusy}"></ActivityIndicator>
+            <ListView x:Name="lvPersonas" ItemsSource="{Binding Personas}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Edad}" Detail="{Binding NombreCompleto}"></TextCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>
